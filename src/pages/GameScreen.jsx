@@ -12,7 +12,9 @@ const GameScreen = () => {
         marginTop: "2rem",
         padding: "1rem",
         fontFamily: "Arial, sans-serif",
-        background: "linear-gradient(135deg, #282c34, #3a3f47)",
+        background: "linear-gradient(135deg, #ff6ec4, #7873f5, #42f5ef, #f5d142)",
+        backgroundSize: "400% 400%",
+        animation: "gradientAnimation 15s ease infinite",
         color: "#fff",
         minHeight: "100vh",
         display: "flex",
@@ -24,15 +26,29 @@ const GameScreen = () => {
       <h1
         style={{
           fontSize: "3rem",
-          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+          textShadow: "3px 3px 8px rgba(0,0,0,0.6)",
+          background: "linear-gradient(90deg, #ffb347, #ffcc33, #ff6ec4)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
         }}
       >
         Game Page
       </h1>
-      <p style={{ fontSize: "1.5rem", color: "#dcdcdc" }}>
+      <p style={{ fontSize: "1.5rem", color: "#fff" }}>
         Selected Difficulty:{" "}
-        <span style={{ color: "#fff", fontWeight: "bold" }}>{difficulty}</span>
+        <span style={{ fontWeight: "bold", color: "#ffd700" }}>{difficulty}</span>
       </p>
+
+      {/* Gradient animation keyframes */}
+      <style>
+        {`
+          @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+          }
+        `}
+      </style>
     </div>
   );
 };

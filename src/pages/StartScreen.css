@@ -1,53 +1,103 @@
+/* ---------- Container ---------- */
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #282c34, #3a3f47);
-  color: #fff;
-  font-family: Arial, sans-serif;
-  padding: 1rem;
+  min-height: 100vh;
+  padding: 2.5rem;
   box-sizing: border-box;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+
+  background: linear-gradient(145deg, #1b1f2a, #262b3a);
+  animation: zoomFade 0.6s ease-out;
+  overflow: hidden;
 }
 
+/* Ambient background glow */
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(168, 85, 247, 0.15),
+    transparent 65%
+  );
+  z-index: -1;
+}
+
+/* ---------- Title ---------- */
 .title {
-  font-size: 3.5rem;
+  font-size: 3.4rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
 }
 
+/* ---------- Subtitle ---------- */
 .subtitle {
-  font-size: 1.75rem;
-  margin-bottom: 2.5rem;
-  color: #dcdcdc;
+  font-size: 1.55rem;
+  margin-bottom: 2.8rem;
+  color: #d8d8e5;
+  max-width: 500px;
+  line-height: 1.6;
 }
 
+/* ---------- Button Container ---------- */
 .buttonContainer {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* ---------- Buttons ---------- */
 .button {
-  padding: 0.75rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.35),
+    rgba(236, 72, 153, 0.35)
+  );
+
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 22px rgba(168, 85, 247, 0.35);
 }
 
+/* Hover */
 .button:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.06);
+  box-shadow: 0 12px 32px rgba(236, 72, 153, 0.5);
 }
 
+/* Active */
 .button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(168, 85, 247, 0.35);
+}
+
+/* ---------- Animation ---------- */
+@keyframes zoomFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
